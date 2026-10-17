@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar ae</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>     
+</head>
+<body>
+    <div class="flex w-full h-16 bg-slate-700 items-center justify-center">
+        <h1 class="font-sans font-bold text-cyan-500 text-xl text-center">Web Kasir Sederhana</h1>
+    </div>
+    <section class="flex w-full h-full items-center justify-center gap-20 p-15">
+        <div class="border border-gray-200 rounded-xl shadow-xl p-10 flex flex-col items-center justify-center gap-5">
+            <img src="leminerale.jpeg" alt="Gambar Kasir" class="w-40 h-40">
+            <p id="nameProduct1" class="font-bold font-sans text-xl">Le Minerale</p>
+            <p id="priceProduct1" class="font-semibold font-mono text-lg">RP 5.000</p>
+            <div class="flex w-full h-full justify-center items-center gap-2">
+                <button id="decreaseQuantity1" class="bg-white border-2 border-red-400 text-red-400 font-bold py-1 px-2.5 rounded hover:bg-red-200" onclick="decreaseQuantity1()"> - </button>
+                <p id="quantity1" class="font-bold font-sans text-lg mx-4">0</p>
+                <button id="addQuantity1" class="bg-white border-2 border-green-400 text-green-400 font-bold py-1 px-2 rounded hover:bg-green-200" onclick="addQuantity1()">+</button>
+            </div>
+            <button id="buyButton1" class="bg-cyan-500 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700 w-full h-full" onclick="buyProduct1()">Beli</button>
+        </div>
+        <div class="border border-gray-200 rounded-xl shadow-xl p-10 flex flex-col items-center justify-center gap-5">
+            <img src="indomie.jpeg" alt="Gambar Kasir" class="w-40 h-40">
+            <p id="nameProduct2" class="font-bold font-sans text-xl">Indomie goreng</p>
+            <p id="priceProduct2" class="font-semibold font-mono text-lg">RP 9.000</p>
+            <div class="flex w-full h-full justify-center items-center gap-2">
+                <button id="decreaseQuantity2" class="bg-white border-2 border-red-400 text-red-400 font-bold py-1 px-2.5 rounded hover:bg-red-200" onclick="decreaseQuantity2()"> - </button>
+                <p id="quantity2" class="font-bold font-sans text-lg mx-4">0</p>
+                <button id="addQuantity2" class="bg-white border-2 border-green-400 text-green-400 font-bold py-1 px-2 rounded hover:bg-green-200" onclick="addQuantity2()">+</button>
+            </div>
+            <button id="buyButton2" class="bg-cyan-500 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700 w-full h-full" onclick="buyProduct2()">Beli</button>
+        </div>
+        <div class="border border-gray-200 rounded-xl shadow-xl p-10 flex flex-col items-center justify-center gap-5">
+            <img src="nutrisari.jpeg" alt="Gambar Kasir" class="w-40 h-40">
+            <p id="nameProduct3" class="font-bold font-sans text-xl">Nutriasri jeruk</p>
+            <p id="priceProduct3" class="font-semibold font-mono text-lg">RP 6.500</p>
+            <div class="flex w-full h-full justify-center items-center gap-2">
+                <button id="decreaseQuantity3" class="bg-white border-2 border-red-400 text-red-400 font-bold py-1 px-2.5 rounded hover:bg-red-200" onclick="decreaseQuantity3()"> - </button>
+                <p id="quantity3" class="font-bold font-sans text-lg mx-4">0</p>
+                <button id="addQuantity3" class="bg-white border-2 border-green-400 text-green-400 font-bold py-1 px-2 rounded hover:bg-green-200" onclick="addQuantity3()">+</button>
+            </div>
+            <button id="buyButton3" class="bg-cyan-500 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700 w-full h-full" onclick="buyProduct3()">Beli</button>
+        </div>
+    </section>
+
+<section class="mx-auto my-10 max-w-4xl rounded-2xl border border-slate-200 bg-white p-8 shadow-lg">
+
+    <h2 class="mb-2 text-2xl font-bold text-slate-800">
+        STRUK BELANJA
+    </h2>
+
+    <p class="mb-6 text-sm text-slate-500">
+        Kasir Jualan Asrama Kamar 106
+    </p>
+
+    <div class="space-y-4">
+
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+                <p class="font-semibold">Le Minerale</p>
+                <p class="text-sm text-slate-500">      <span id="receiptQuantity1">0</span> × Rp5.000</p>
+            </div>
+            <p class="font-semibold" id="receiptSubtotal1">Rp0</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+                <p class="font-semibold">Indomie Goreng</p>
+                <p class="text-sm text-slate-500"> <span id="receiptQuantity2">0</span> × Rp9.000</p>
+            </div>
+            <p class="font-semibold" id="receiptSubtotal2">Rp0</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+                <p class="font-semibold">Nutrisari Jeruk</p>
+                <p class="text-sm text-slate-500"> <span id="receiptQuantity3">0</span> × Rp6.500</p>
+            </div>
+            <p class="font-semibold" id="receiptSubtotal3">Rp0</p>
+        </div>
+
+    </div>
+
+    <!-- Total Belanja -->
+    <div class="mt-6 flex items-center justify-between">
+        <p class="text-lg font-bold">Total Belanja</p>
+        <p class="text-2xl font-extrabold text-cyan-600" id="totalPrice">Rp0</p>
+    </div>
+
+    <!-- Pembayaran -->
+    <div class="mt-6">
+        <label class="mb-2 block font-semibold">
+            Uang Pembayaran
+        </label>
+
+        <input
+            type="number"
+            id="paymentInput"
+            min="0"
+            class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
+            placeholder="Masukkan uang pembayaran"
+        >
+    </div>
+
+    <!-- Kembalian -->
+    <div class="mt-4 flex items-center justify-between rounded-lg bg-slate-100 p-4">
+        <p class="font-semibold text-slate-700">Kembalian</p>
+        <p class="text-xl font-bold text-slate-500" id="changeMoney">Rp0</p>
+    </div>
+
+    <!-- Status Transaksi -->
+    <div class="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-4" id="containerStatus">
+        <p class="font-bold text-slate-700" id="transactionStatus">
+            Menunggu transaksi
+        </p>
+        <p class="mt-1 text-sm text-slate-500" id="transactionMessage">
+            Belum ada produk yang dibeli.
+        </p>
+    </div>
+    <button class="mt-6 w-full rounded-lg bg-cyan-500 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-cyan-600" onclick="calculateChange()"> Cetak Struk </button>
+    <button class="mt-6 w-full rounded-lg bg-red-500 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-red-600" onclick="resetTransaction()">Reset Transaksi</button>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
